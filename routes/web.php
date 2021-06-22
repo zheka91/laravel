@@ -26,5 +26,5 @@ Route::get('/info', function () {
 });
 
 Route::get('/news/{id}', function ($id) {
-    return "Новость id = {$id}.";
+    return "Новость с id = {$id}.";
 });
