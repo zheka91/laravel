@@ -15,4 +15,17 @@ class NewsController extends Controller
     public function show(int $id) {
         return view('news.show');
     }
+
+    public function create() {
+        return view("news.create");
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            "title" => ["required", "string"],
+            "description" => ["required", "string"],
+        ]);
+        $data = $request->only(["title", "description"]);
+        dd($data);
+    }
 }

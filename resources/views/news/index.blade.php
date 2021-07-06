@@ -1,8 +1,12 @@
 @extends('layouts.main')
+@section('title') Новости - @parent @stop
 @section('content')
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="d-flex justify-content-end mb-4">
+                    <a class="btn btn-primary text-uppercase" href="{{ route('news.create') }}">Добавить новость</a>
+                </div>
                 @forelse($newsList as $news)
                 <!-- Post preview-->
                 <div class="post-preview">

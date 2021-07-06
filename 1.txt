@@ -1,0 +1,68 @@
+Warning: TTY mode is not supported on Windows platform.
+
+  [30;43;1m RUNS [39;49;22m[39m [2mTests\Unit\[22m[39m[37;1mExampleTest[39;22m
+  [33;1m•[39;22m[39m [2mbasic test[22m[39m
+
+  [37;1mTests:  [39;22m[39m[2m10 pending[22m[39m
+[4A[0J
+  [30;42;1m PASS [39;49;22m[39m [2mTests\Unit\[22m[39m[37;1mExampleTest[39;22m
+  [32;1m✓[39;22m[39m [2mbasic test[22m[39m
+
+  [30;43;1m RUNS [39;49;22m[39m [2mTests\Feature\[22m[39m[37;1mCategoryTest[39;22m
+  [33;1m•[39;22m[39m [2mexample[22m[39m
+
+  [37;1mTests:  [39;22m[32;1m1 passed[39;22m[39m, [2m9 pending[22m[39m
+[4A[0J
+  [30;43;1m RUNS [39;49;22m[39m [2mTests\Feature\[22m[39m[37;1mCategoryTest[39;22m
+  [33;1m•[39;22m[39m [2mcategory list status[22m[39m
+
+  [37;1mTests:  [39;22m[32;1m2 passed[39;22m[39m, [2m8 pending[22m[39m
+[4A[0J
+  [30;43;1m RUNS [39;49;22m[39m [2mTests\Feature\[22m[39m[37;1mCategoryTest[39;22m
+  [33;1m•[39;22m[39m [2mcategory status[22m[39m
+
+  [37;1mTests:  [39;22m[32;1m3 passed[39;22m[39m, [2m7 pending[22m[39m
+[4A[0J
+  [30;43;1m RUNS [39;49;22m[39m [2mTests\Feature\[22m[39m[37;1mCategoryTest[39;22m
+  [33;1m•[39;22m[39m [2mcategory content txt[22m[39m
+
+  [37;1mTests:  [39;22m[32;1m4 passed[39;22m[39m, [2m6 pending[22m[39m
+[4A[0J
+  [30;43;1m RUNS [39;49;22m[39m [2mTests\Feature\[22m[39m[37;1mCategoryTest[39;22m
+  [33;1m•[39;22m[39m [2mcategory header[22m[39m
+
+  [37;1mTests:  [39;22m[32;1m5 passed[39;22m[39m, [2m5 pending[22m[39m
+[4A[0J
+  [37;41;1m FAIL [39;49;22m[39m [2mTests\Feature\[22m[39m[37;1mCategoryTest[39;22m
+  [32;1m✓[39;22m[39m [2mexample[22m[39m
+  [32;1m✓[39;22m[39m [2mcategory list status[22m[39m
+  [32;1m✓[39;22m[39m [2mcategory status[22m[39m
+  [32;1m✓[39;22m[39m [2mcategory content txt[22m[39m
+  [31;1m✕[39;22m[39m [2mcategory header[22m[39m
+
+  [37;1mTests:  [39;22m[31;1m1 failed[39;22m[39m, [39m[32;1m5 passed[39;22m[39m, [2m4 pending[22m[39m
+
+[39;1m  Header [Content-Type] was found, but value [text/html; charset=UTF-8] does not match [text/html]. Failed asserting that two strings are equal.[39;22m
+
+  at [32mD:\os\OSPanel\domains\localhost\laravel\gb\vendor\phpunit\phpunit\src\Framework\Constraint\IsEqual.php[39m:[32m100[39m
+    [90m 96| [0m[35;1m            if ([0m[39;1m$returnResult[0m[35;1m) {[0m
+    [90m 97| [0m[35;1m                return [0m[39;1mfalse[0m[35;1m;[0m
+    [90m 98| [0m[35;1m            }[0m
+    [90m 99| [0m
+[31;1m  > [0m[90m100| [0m[35;1m            throw new [0m[39;1mExpectationFailedException[0m[35;1m([0m
+    [90m101| [0m[35;1m                [0m[39;1mtrim[0m[35;1m([0m[39;1m$description [0m[35;1m. [0m[37m"\n" [0m[35;1m. [0m[39;1m$f[0m[35;1m->[0m[39;1mgetMessage[0m[35;1m()),[0m
+    [90m102| [0m[35;1m                [0m[39;1m$f[0m
+    [90m103| [0m[39;1m            [0m[35;1m);[0m
+    [90m104| [0m[35;1m        }[0m
+
+  [33m1   [39m[39;1mD:\os\OSPanel\domains\localhost\laravel\gb\vendor\phpunit\phpunit\src\Framework\Assert.php[39;22m:[39;1m2924[39;22m
+  [37m    PHPUnit\Framework\Constraint\IsEqual::evaluate("text/html; charset=UTF-8", "Header [Content-Type] was found, but value [text/html; charset=UTF-8] does not match [text/html].")[39m
+
+  [33m2   [39m[39;1mD:\os\OSPanel\domains\localhost\laravel\gb\vendor\phpunit\phpunit\src\Framework\Assert.php[39;22m:[39;1m629[39;22m
+  [37m    PHPUnit\Framework\Assert::assertThat("text/html; charset=UTF-8", Object(PHPUnit\Framework\Constraint\IsEqual), "Header [Content-Type] was found, but value [text/html; charset=UTF-8] does not match [text/html].")[39m
+
+--- Expected
++++ Actual
+@@ @@
+-'text/html'
++'text/html; charset=UTF-8'
