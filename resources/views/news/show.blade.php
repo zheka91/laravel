@@ -5,12 +5,12 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <!-- Post preview-->
                 <div class="post-preview">
-                    <h2 class="post-title">Test</h2>
-                    <p>Описание</p>
+                    <h2 class="post-title">{{ $newsList->title }}</h2>
+                    <p>{{ $newsList->description }}</p>
                     <p class="post-meta">
                         Опубликовал
                         <a href="#!">Админ</a>
-                        от {{ now()->format('d-m-Y H:i') }}
+                        от {{ $newsList->created_at }}
                     </p>
                 </div>
             </div>

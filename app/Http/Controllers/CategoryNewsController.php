@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CategoryNewsController extends Controller
 {
     public function index() {
+        $catModel = new Category();
         return view("category.index", [
-            "catList" => $this->getCategory(),
+            "catList" => $catModel->getCategories(),
         ]);
     }
 

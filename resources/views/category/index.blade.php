@@ -9,8 +9,8 @@
                 @forelse($catList as $id => $cat)
                 <!-- Post preview-->
                 <div class="post-preview">
-                    <a href="{{ route('news.catid', ['catid' => $id]) }}">
-                        <h2 class="post-title">{{ $cat }}</h2>
+                    <a href="{{ route('news.catid', ['catid' => $cat->id]) }}">
+                        <h2 class="post-title">{{ $cat->id . ") " . $cat->title }}</h2>
                     </a>
                 </div>
                 <!-- Divider-->
