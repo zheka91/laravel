@@ -28,15 +28,24 @@ Route::get('/categorycreate', [CategoryNewsController::class, 'create'])
 Route::post('/categorycreate', [CategoryNewsController::class, 'store'])
     ->name('category.store');
 
+Route::get('/categoryedit/{catid}', [CategoryNewsController::class, 'edit'])
+    ->name('category.edit');
+
+Route::put('/categoryupdate/{category}', [CategoryNewsController::class, 'update'])
+    ->name('category.update');
+
 Route::get('/category/{catid}', [NewsController::class, 'index'])
     ->name('news.catid');
 
-Route::get('/news/{id}', [NewsController::class, 'show'])
+Route::get('/news/{id}', [NewsController::class, 'edit'])
     ->name('news.id')
     ->where('id', '\d+');
 
-Route::get('/newscreate', [NewsController::class, 'create'])
+Route::get('/newscreate/{catid}', [NewsController::class, 'create'])
     ->name('news.create');
 
-Route::post('/newscreate', [NewsController::class, 'store'])
+Route::post('/newscreate/{catid}', [NewsController::class, 'store'])
     ->name('news.store');
+
+Route::put('/newsupdate/{news}', [NewsController::class, 'update'])
+    ->name('news.update');

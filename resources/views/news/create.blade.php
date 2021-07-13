@@ -9,7 +9,7 @@
                     @endforeach
                 @endif
                 <div>
-                    <form method="post" action="{{ route('news.store') }}">
+                    <form method="post" action="{{ route('news.store', ['catid' => $catid]) }}">
                         @csrf
                         <div class="form-group">
                             <label for="title">Название</label>
@@ -19,7 +19,7 @@
                             <label for="description">Описание</label>
                             <input type="text" id="description" name="description" class="form-control" value="{{ old('description') }}">
                         </div>
-                        <button class="btn btn-primary" type="submit">Сохранить</button>
+                        <button class="btn btn-primary" type="submit" style="margin: 25px 0; float: right;">Сохранить</button>
                     </form>
                 </div>
             </div>

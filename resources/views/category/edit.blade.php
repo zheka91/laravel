@@ -9,19 +9,20 @@
                     @endforeach
                 @endif
                 <div>
-                    <form method="post" action="{{ route('category.store') }}">
+                    <form method="post" action="{{ route('category.update', ['category' => $category]) }}">
                         @csrf
+                        @method('put')
                         <div class="form-group">
                             <label for="title">Название</label>
-                            <input type="text" id="title" name="title" class="form-control">
+                            <input type="text" id="title" name="title" class="form-control" value="{{ $category->title }}">
                         </div>
                         <div class="form-group">
                             <label for="description">Описание</label>
-                            <input type="text" id="description" name="description" class="form-control">
+                            <input type="text" id="description" name="description" class="form-control" value="{{ $category->description }}">
                         </div>
                         <div class="form-group">
                             <label for="color">Цвет</label>
-                            <input type="color" id="color" name="color" class="form-control">
+                            <input type="color" id="color" name="color" class="form-control" value="{{ $category->color }}">
                         </div>
                         <button class="btn btn-primary" type="submit" style="margin-top: 25px; margin-bottom: 25px; float: right;">Сохранить</button>
                     </form>
