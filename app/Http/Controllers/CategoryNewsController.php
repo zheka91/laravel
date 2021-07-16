@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Http\Requests\CategoryUpdate;
+use App\Http\Requests\CategoryStore;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CategoryNewsController extends Controller
 {
-    // public function index() {
-    //     $catModel = new Category();
-    //     return view("category.index", [
-    //         "catList" => $catModel->getCategories(),
-    //     ]);
-    // }
     public function index() {
     	$cat = Category::with('news')
 		    ->select(['id', 'title', 'description', 'created_at'])
@@ -28,9 +24,9 @@ class CategoryNewsController extends Controller
         return view("category.create");
     }
 
-    public function store(Request $request) {
+    public function store(CategoryStore $request) {
         $cat = Category::create(
-			$request->only(['title', 'color', 'description'])
+			$request->validated()
 		);
 
 		if ($cat) {
@@ -52,9 +48,9 @@ class CategoryNewsController extends Controller
 		]);
     }
     
-    public function update(Request $request, Category $category) {
+    public function update(CategoryUpdate $request, Category $category) {
         $cat = $category->fill(
-			$request->only(['title', 'color', 'description'])
+			$request->validated()
 		)->save();
 
         if ($cat) {

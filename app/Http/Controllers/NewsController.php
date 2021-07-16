@@ -2,23 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\News;
+use App\Http\Requests\NewsUpdate;
+use App\Http\Requests\NewsStore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class NewsController extends Controller {
-    // public function index($catid) {
-    //     $newsModel = new News();
-    //     return view("news.index", [
-    //         "newsList" => $newsModel->getNews($catid),
-    //     ]);
-    // }
-    
+class NewsController extends Controller {    
     public function index($catid) {
-        // $newsModel = new News();
-        // return view("news.index", [
-        //     "newsList" => $newsModel->getNews($catid),
-        // ]);
-
         $news = News::with('category')
             ->where("category_id", "=", $catid)
 			->orderBy('id', 'desc')
@@ -28,13 +18,6 @@ class NewsController extends Controller {
 			'catid' => $catid
 		]);
     }
-
-    // public function show(int $id) {
-    //     $newsModel = new News();
-    //     return view('news.show', [
-    //         "newsList" => $newsModel->getNewsById($id),
-    //     ]);
-    // }
 
     public function show(int $id) {
 		return view('news.show');
@@ -46,15 +29,8 @@ class NewsController extends Controller {
         ]);
     }
 
-    public function store(Request $request, $catid) {
-        // $request->validate([
-        //     "title" => ["required", "string"],
-        //     "description" => ["required", "string"],
-        // ]);
-        // $data = $request->only(["title", "description"]);
-        // dd($catid);
-        
-		$data = $request->only(['title', 'description']);
+    public function store(NewsStore $request, $catid) {
+     	$data = $request->validated();
         $data['category_id'] = $catid;
         $data['slug'] = Str::slug($data['title']);
         
@@ -81,8 +57,8 @@ class NewsController extends Controller {
 		]);
     }
     
-    public function update(Request $request, News $news) {
-		$data = $request->only(['title', 'description']);
+    public function update(NewsUpdate $request, News $news) {
+		$data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
         
         $cat = $news->fill($data)->save();
